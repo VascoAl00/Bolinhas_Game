@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -21,13 +22,25 @@ public class PlayerController : MonoBehaviour
 
     Animator animator;
 
+    public Canvas canvas;
+
+    public float timeInBetweenScenes = 2f;
+
     // Start is called before the first frame update
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(canvas);
+
         Application.targetFrameRate = 60;
         rb = GetComponent<Rigidbody2D>();
         starterObjective.SpawnObjects();
         animator = GetComponent<Animator>();
+
+
+        Invoke("SkipSceneController", timeInBetweenScenes);
+
+        
 
     }
 
@@ -70,6 +83,7 @@ public class PlayerController : MonoBehaviour
 
 
 
+
             if ( enemyDecider == 1)
             {
 
@@ -94,4 +108,78 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            animator.SetTrigger("Death");
+            //Destroy(gameObject);
+
+        }
+    }
+
+    public void SkipScenetoOne()
+    {
+
+       //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        Destroy(canvas);
+        SceneManager.LoadScene(1);
+        Invoke("SkipSceneController", timeInBetweenScenes);
+
+
+
+    }
+
+    public void SkipScenetoTwo()
+    {
+
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(2);
+        Invoke("SkipSceneController", timeInBetweenScenes);
+
+
+        float spawnY = Random.Range(-4f, 2.75f);
+        float spawnX = Random.Range(-9f, 9f);
+
+        while (spawnX >= -1.9 && spawnX <= 1.9)
+        {
+            spawnX = Random.Range(-9f, 9f);
+        }
+
+        while (spawnY >= -2.4 && spawnY <= 1.1)
+        {
+            spawnY = Random.Range(-4f, 2.75f);
+        }
+    }
+
+    public void SkipScenetoThree()
+    {
+
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(3);
+
+        Destroy(gameObject);
+
+
+    }
+
+    public void SkipSceneController()
+    {
+
+        if(SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            SkipScenetoTwo();
+        }
+
+        else if (SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            SkipScenetoThree();
+        }
+
+
+    }
+
 }
+

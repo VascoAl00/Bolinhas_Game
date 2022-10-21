@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8247917445895889700}
   - component: {fileID: 8247917445895889720}
   - component: {fileID: 8247917445895889703}
+  - component: {fileID: 1931994257}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -101,6 +102,10 @@ MonoBehaviour:
   scoretext: {fileID: 0}
   starterObjective: {fileID: 5020011418246945501, guid: de9355f884f17144a840f05f059f8d37, type: 3}
   enemies: {fileID: 4875495000537770145, guid: 40e30680228f7a2438b010ef8c0e2722, type: 3}
+  variantEnemies: {fileID: 1358898093, guid: 3b5276560118c4e428ba03e2240b3d2d, type: 3}
+  enemyDecider: 0
+  canvas: {fileID: 0}
+  timeInBetweenScenes: 2
 --- !u!50 &8247917445895889720
 Rigidbody2D:
   serializedVersion: 4
@@ -148,3 +153,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 0.5}
   m_EdgeRadius: 0
+--- !u!95 &1931994257
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8247917445895889699}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c0cf44f14fac31f4981179cdf3c66336, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

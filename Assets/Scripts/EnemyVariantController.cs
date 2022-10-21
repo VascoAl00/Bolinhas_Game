@@ -23,12 +23,12 @@ public class EnemyVariantController : EnemyController
 
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
 
         var target = GameObject.FindWithTag("Player").transform;
 
-        if (collision.CompareTag("Horizontal") || collision.CompareTag("Vertical"))
+        if (collision.gameObject.CompareTag("Horizontal") || collision.gameObject.CompareTag("Vertical"))
         {
 
             rb.velocity = new Vector2((target.position.x - rb.position.x), (target.position.y - rb.position.y));

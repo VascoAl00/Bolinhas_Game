@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -866993716471184435, guid: 40e30680228f7a2438b010ef8c0e2722, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 324305857503819921, guid: 40e30680228f7a2438b010ef8c0e2722, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -66,6 +70,10 @@ PrefabInstance:
     - target: {fileID: 2978637014410799662, guid: 40e30680228f7a2438b010ef8c0e2722, type: 3}
       propertyPath: m_Name
       value: Enemy_Variant Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 2978637014410799662, guid: 40e30680228f7a2438b010ef8c0e2722, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4875495000537770145, guid: 40e30680228f7a2438b010ef8c0e2722, type: 3}

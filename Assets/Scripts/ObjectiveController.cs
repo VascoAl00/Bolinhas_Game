@@ -71,8 +71,19 @@ public class ObjectiveController : MonoBehaviour
         float spawnY = Random.Range(-4f,2.75f);
         float spawnX = Random.Range(-9f, 9f);
 
+        while (spawnX >= -1.9 && spawnX <= 1.9)
+        {
+            spawnX = Random.Range(-9f, 9f);
+        }
+
+        while (spawnY >= -2.4 && spawnY <= 1.1)
+        {
+            spawnY = Random.Range(-4f, 2.75f);
+        }
+
+
         Vector2 spawnPosition = new Vector2(spawnX, spawnY);
-        Instantiate(gameObject, spawnPosition, Quaternion.identity);
+        Instantiate(gameObject, spawnPosition, Quaternion.identity);    
 
     }
 
