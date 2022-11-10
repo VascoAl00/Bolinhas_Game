@@ -12,10 +12,17 @@ public class EnemyController : MonoBehaviour
     protected float timeLeft;
     protected Rigidbody2D rb;
 
+    private PlayerController player;
+
     // Start is called before the first frame update
     void Start()
     {
+        player = FindObjectOfType<PlayerController>();
+
         Application.targetFrameRate = 60;
+
+        player.powerUpMultiDelegate += HalfTheirSize;
+        //player.powerUpMultiDelegate += ReturnTheirSize;
 
     }
 
@@ -71,6 +78,22 @@ public class EnemyController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         movement = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
         rb.AddForce(movement * maxSpeed);
+
+    }
+
+    void HalfTheirSize()
+    {
+
+        transform.localScale = new Vector2(0.5f, 0.5f);
+
+        Invoke("ReturnTheirSize", 10f);
+
+    }
+
+    void ReturnTheirSize()
+    {
+
+        transform.localScale = new Vector2(1f, 1f);
 
     }
 

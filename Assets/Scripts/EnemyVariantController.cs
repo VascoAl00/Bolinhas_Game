@@ -7,13 +7,7 @@ public class EnemyVariantController : EnemyController
 
     public PlayerController playerInfo;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
- 
-
-    }
+   
 
     // Update is called once per frame
     void Update()
@@ -34,5 +28,21 @@ public class EnemyVariantController : EnemyController
             rb.velocity = new Vector2((target.position.x - rb.position.x), (target.position.y - rb.position.y));
 
         }
+    }
+
+    void HalfTheirSize()
+    {
+
+        transform.localScale = new Vector2(0.5f, 0.5f);
+
+        Invoke("ReturnTheirSize", 10f);
+
+    }
+
+    void ReturnTheirSize()
+    {
+
+        transform.localScale = new Vector2(1f, 1f);
+
     }
 }

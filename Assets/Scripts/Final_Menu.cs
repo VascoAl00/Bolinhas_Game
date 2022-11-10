@@ -10,6 +10,7 @@ public class Final_Menu : MonoBehaviour
     {
 
         SceneManager.LoadScene("Level01");
+        Score_Manager.score = 0;
 
     }
 

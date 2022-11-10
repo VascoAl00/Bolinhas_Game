@@ -89,10 +89,10 @@ public class ObjectiveController : MonoBehaviour
 
     private void Awake()
     {
+
         rb = GetComponent<Rigidbody2D>();
         movement = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
         rb.AddForce(movement * maxSpeed);
-
 
     }
 }

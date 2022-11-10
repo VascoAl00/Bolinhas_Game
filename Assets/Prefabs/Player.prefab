@@ -100,12 +100,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   scoretext: {fileID: 0}
-  starterObjective: {fileID: 5020011418246945501, guid: de9355f884f17144a840f05f059f8d37, type: 3}
+  starterObjective: {fileID: 7361516655373830077, guid: de9355f884f17144a840f05f059f8d37, type: 3}
   enemies: {fileID: 4875495000537770145, guid: 40e30680228f7a2438b010ef8c0e2722, type: 3}
   variantEnemies: {fileID: 1358898093, guid: 3b5276560118c4e428ba03e2240b3d2d, type: 3}
+  powerUp: {fileID: 6781817547703606640, guid: 929ac6bf511ac2c4995015bad972c650, type: 3}
   enemyDecider: 0
   canvas: {fileID: 0}
-  timeInBetweenScenes: 2
+  timeInBetweenScenes: 30
 --- !u!50 &8247917445895889720
 Rigidbody2D:
   serializedVersion: 4

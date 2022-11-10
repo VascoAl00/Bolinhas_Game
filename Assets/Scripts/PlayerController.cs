@@ -6,16 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    public delegate void MultiDelegate();
+    public MultiDelegate powerUpMultiDelegate;
+
+
     public float speed = 2;
     private float horizontal;
     private float vertical;
     private Rigidbody2D rb;
-    public Text scoretext;
-    private int score;
 
     public ObjectiveController starterObjective;
     public EnemyController enemies;
     public EnemyVariantController variantEnemies;
+    public Power_Up_Controller powerUp;
 
 
     public int enemyDecider;
@@ -24,7 +27,9 @@ public class PlayerController : MonoBehaviour
 
     public Canvas canvas;
 
-    public float timeInBetweenScenes = 2f;
+    public float timeInBetweenScenes = 30f;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -37,8 +42,12 @@ public class PlayerController : MonoBehaviour
         starterObjective.SpawnObjects();
         animator = GetComponent<Animator>();
 
+        
 
         Invoke("SkipSceneController", timeInBetweenScenes);
+
+
+        powerUp.SpawnPowerUpTimer();
 
         
 
@@ -77,8 +86,7 @@ public class PlayerController : MonoBehaviour
         if (collision.CompareTag("Objective"))
         {
 
-            score++;
-            scoretext.text = "Score: " + score;
+            Score_Manager.IncreaseScore();
 
 
 
@@ -107,6 +115,16 @@ public class PlayerController : MonoBehaviour
 
         }
 
+        if (collision.CompareTag("PowerUp"))
+        {
+
+            if (powerUpMultiDelegate != null)
+            {
+                powerUpMultiDelegate();
+            }
+
+        }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -116,6 +134,7 @@ public class PlayerController : MonoBehaviour
         {
             animator.SetTrigger("Death");
             //Destroy(gameObject);
+            SkipScenetoThree();
 
         }
     }
@@ -152,6 +171,8 @@ public class PlayerController : MonoBehaviour
         {
             spawnY = Random.Range(-4f, 2.75f);
         }
+
+        powerUp.Invoke("SpawnPowerUpTimer", 0f);
     }
 
     public void SkipScenetoThree()

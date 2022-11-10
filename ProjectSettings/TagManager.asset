@@ -8,6 +8,7 @@ TagManager:
   - Horizontal
   - Objective
   - Enemy
+  - PowerUp
   layers:
   - Default
   - TransparentFX
