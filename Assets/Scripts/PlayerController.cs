@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
         DontDestroyOnLoad(canvas);
-
+        
         Application.targetFrameRate = 60;
         rb = GetComponent<Rigidbody2D>();
         starterObjective.SpawnObjects();
@@ -65,8 +65,9 @@ public class PlayerController : MonoBehaviour
 
     void Death()
     {
-
+        SkipScenetoThree();
         Destroy(gameObject);
+
 
     }
 
@@ -113,6 +114,14 @@ public class PlayerController : MonoBehaviour
             animator.SetTrigger("Death");
             //Destroy(gameObject);
 
+         /*   if (Score_Manager.score > PlayerPrefs.GetInt("score"))
+            {
+
+                PlayerPrefs.SetInt("score", Score_Manager.score);
+
+            } */
+
+
         }
 
         if (collision.CompareTag("PowerUp"))
@@ -132,9 +141,15 @@ public class PlayerController : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Enemy"))
         {
+           /* if (Score_Manager.score > PlayerPrefs.GetInt("score"))
+            {
+
+                PlayerPrefs.SetInt("score", Score_Manager.score);
+
+            }*/
             animator.SetTrigger("Death");
             //Destroy(gameObject);
-            SkipScenetoThree();
+
 
         }
     }

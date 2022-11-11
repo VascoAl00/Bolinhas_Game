@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Final_Menu : MonoBehaviour
 {
-  
+
+
+
+
     public void StartGame()
     {
 
@@ -21,5 +25,7 @@ public class Final_Menu : MonoBehaviour
         Application.Quit();
 
     }
+
+
 
 }
